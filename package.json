@@ -1,14 +1,19 @@
 {
-  "name": "firstApp",
+  "name": "graphql-app",
   "version": "1.0.0",
-  "description": "",
+  "description": "This is an app using graphQL and express",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "json:server": "json-server --watch user.json"
+    "json:server": "json-server --watch user.json",
+    "start": "npx nodemon server.js"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "graphQL",
+    "express",
+    "json-server"
+  ],
+  "author": "vincnet.dagoury@gmail.com",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.18.0",
