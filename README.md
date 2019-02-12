@@ -40,3 +40,35 @@ Then open the following link :
 - http://localhost:4000/graphql
 
 You can play along with the graphiql tool
+
+## Typical graphQL queries
+
+This is a typical graphQL query for fetching user with id = 1.
+
+```graphql
+{
+  user(id: "1") {
+    id
+    username
+    name
+    email
+    address {
+      street
+      suite
+      city
+      zipcode
+      geo {
+        lat
+        lng
+      }
+    }
+    website
+    company {
+      name
+      catchPhrase
+      bs
+    }
+    phone
+  }
+}
+```

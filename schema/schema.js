@@ -1,9 +1,9 @@
 const graphql = require('graphql');
-const _ = require('lodash');
+// const _ = require('lodash');
 const axios = require('axios');
-const { GraphQLObjectType, GraphQLString, GraphQLInt, GraphQLSchema } = graphql;
+const { GraphQLObjectType, GraphQLString, GraphQLSchema } = graphql;
 
-async function getUser(id) {
+/* async function getUser(id) {
   try {
     const response = await axios.get(
       `https://jsonplaceholder.typicode.com/users/${id}`,
@@ -12,7 +12,7 @@ async function getUser(id) {
   } catch (error) {
     console.error(error);
   }
-}
+} */
 
 const CompanyType = new GraphQLObjectType({
   name: 'Company',
@@ -63,7 +63,13 @@ const RootQuery = new GraphQLObjectType({
       type: UserType,
       args: { id: { type: GraphQLString } },
       resolve(parentValue, args) {
-        return getUser(args.id);
+        // return getUser(args.id);
+
+        // axios responses with a '.data' so we need to push
+        return axios
+          .get(`http://localhost:3000/users/${args.id}`)
+          .then(resp => resp.data)
+          .catch(err => console.error(err));
       },
     },
   },
